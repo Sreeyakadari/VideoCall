@@ -3,7 +3,7 @@ import axios from "axios";
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import httpStatus from "http-status-codes";
-import server from "../environment";
+import server from "../environment.js";
 
 export const AuthContext = createContext({});
 const client = axios.create({
@@ -62,7 +62,7 @@ export const AuthProvider = ({ children }) => {
       let request = await client.post("/add_to_activity", {
         token: localStorage.getItem("token"),
         meeting_code: meetingCode,
-      }); 
+      });
       return request;
     } catch (e) {
       throw e;
